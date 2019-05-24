@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <section className="App">
-        <RoomList firebase={firebase}/>
+        <RoomList firebase={firebase} />
       </section>
     );
   }
