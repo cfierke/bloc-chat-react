@@ -40,13 +40,13 @@ class User extends Component {
           (<p className='font-weight-bold'>Welcome Guest!</p>)
         }
           <input
-            className='btn btn-success'
+            className='btn btn-success btn-sm btn-block'
             type='button'
             value='Log in!'
             onClick={this.handleLogInClick}
           />
           <input
-            className='btn btn-success'
+            className='btn btn-success btn-sm btn-block'
             type='button'
             value='Log out!'
             onClick={this.handleLogOutClick}

@@ -23,7 +23,9 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: '',
-      user: null
+      user: {
+        displayName: 'Guest'
+      }
     }
   }
 
@@ -36,6 +38,9 @@ class App extends Component {
   }
 
   render() {
+
+    const activeUserName = this.state.user ? this.state.user.displayName : 'Guest';
+
     return (
       <section className="App">
         <div className='container'>
@@ -45,18 +50,28 @@ class App extends Component {
                 Bloc Chat
               </h1>
               <div>
-                <User firebase={firebase} activeUser={this.setActiveUser} user={this.state.user} />
+                <User
+                  firebase={ firebase }
+                  activeUser={ this.setActiveUser }
+                  user={ this.state.user }
+                />
               </div>
               <h2 className='rooms-title'>Rooms</h2>
-              <RoomList firebase={firebase} activateRoom={this.setActiveRoom} />
+              <RoomList
+                firebase={ firebase }
+                activateRoom={ this.setActiveRoom }
+              />
             </div>
             <div className='col-9'>
               <div>
-                <h2 className='active-rooms'>{this.state.activeRoom.name}</h2>
+                <h2 className='active-rooms'>{ this.state.activeRoom.name }</h2>
               </div>
-              {this.state.activeRoom ?
-                (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} />)
-                : (<h3>Click on a room to get started!</h3>)}
+              { this.state.activeRoom ?
+                (<MessageList
+                  firebase={firebase}
+                  activeRoom={ this.state.activeRoom.key }
+                  user={ activeUserName } />)
+                : (<h3>Click on a room to get started!</h3>) }
             </div>
           </div>
         </div>

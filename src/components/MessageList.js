@@ -12,6 +12,7 @@ class MessageList extends Component {
       content: '',
       roomId: '',
       sentAt: '',
+      activeUserName: '',
     }
 
     this.messageRef = this.props.firebase.database().ref( 'messages' );
@@ -30,7 +31,7 @@ class MessageList extends Component {
   handleMessageChange = (e) => {
     e.preventDefault();
     this.setState({
-      username: 'userTemp',
+      username: this.props.user,
       content: e.target.value,
       roomId: this.props.activeRoom,
       sentAt: this.props.firebase.database.ServerValue.TIMESTAMP
@@ -76,9 +77,7 @@ class MessageList extends Component {
 
     return (
       <section>
-        {/*}<span className='avatar'>
-          <img src={fakerChange} alt='logo'/>
-        </span>{*/}
+        {this.SetActiveUserName}
         <section className='Messages'>
         <h3>Messages</h3>
           {listMess}
@@ -95,7 +94,7 @@ class MessageList extends Component {
             onChange={this.handleMessageChange}
           />
           <input
-            className='btn btn-success'
+            className='btn btn-success btn-block'
             type='submit'
             value='Add Message'
           />
