@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+
+.button-spacing {
+  margin: 5px 0px 0px 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 20px;
+}
+
+.text-area-spacing {
+  margin: 5px 0px 5px 0px;
+}

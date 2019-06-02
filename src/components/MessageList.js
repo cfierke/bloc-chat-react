@@ -87,14 +87,14 @@ class MessageList extends Component {
           onSubmit={this.createMess}
         >
           <input
-            className='form-control'
+            className='form-control text-area-spacing'
             type='text'
             placeholder='Post!'
             value={this.state.content}
             onChange={this.handleMessageChange}
           />
           <input
-            className='btn btn-success btn-block'
+            className='btn btn-success btn-block button-spacing'
             type='submit'
             value='Add Message'
           />

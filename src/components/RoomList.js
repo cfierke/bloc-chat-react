@@ -53,7 +53,7 @@ class RoomList extends Component {
           {this.state.rooms.map( room =>
             <div key={ room.key } className='chat-rooms'>
               <button
-                className="room-name btn btn-primary btn-block"
+                className="room-name btn btn-primary btn-block button-spacing"
                 onClick={(e) => this.handleRoomClick(room, e)}
               >
                 { room.name }
@@ -63,14 +63,14 @@ class RoomList extends Component {
         </div>
         <form id='room-form' onSubmit={this.createRoom}>
           <input
-            className='form-control'
+            className='form-control text-area-spacing'
             type='text'
             placeholder='Create a new room!'
             value={this.state.newRoomName}
             onChange={this.handleChange}
           />
           <input
-            className='btn btn-success btn-block'
+            className='btn btn-success btn-block button-spacing'
             type="submit"
             value="Add Room"
           />
