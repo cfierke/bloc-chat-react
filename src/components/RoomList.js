@@ -22,7 +22,7 @@ class RoomList extends Component {
     });
   }
 
-  createRoom(e) {
+  createRoom = (e) => {
     e.preventDefault();
     const newRoom = this.roomsRef.push({
       name: this.state.newRoomName
@@ -30,39 +30,50 @@ class RoomList extends Component {
     this.setState({
       newRoomName: newRoom
     });
+
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
+    e.preventDefault();
     this.setState({
       newRoomName: e.target.value
     });
   }
 
+  handleRoomClick = (key, e) => {
+    e.preventDefault();
+    this.props.activateRoom(key);
+  }
+
   render() {
     return (
       <section className='chat-room-list'>
-        <h1 className='chat-room-title'>
-          Bloc Chat
-        </h1>
-        <h2 className='rooms-title'>
-          Rooms
-        </h2>
+        <div>
           {this.state.rooms.map( room =>
-            <li key={ room.key } >
-              { room.name }
-            </li>
+            <ul key={ room.key } className='list-inline btn btn-success'>
+              <li
+                className="room-name"
+                onClick={(e) => this.handleRoomClick(room, e)}
+              >
+                { room.name }
+              </li>
+            </ul>
           )}
-          <form onSubmit={ (e) => this.createRoom(e) }>
-            <input
-              type='text'
-              placeholder='Create a new room!'
-              onChange={ (e) => this.handleChange(e) }
-            />
-            <input
-              type="submit"
-              value="Add Room"
-            />
-          </form>
+        </div>
+        <form id='room-form' onSubmit={this.createRoom}>
+          <input
+          className='form-control'
+            type='text'
+            placeholder='Create a new room!'
+            //value={this.state.newRoomName}
+            onChange={this.handleChange}
+          />
+          <input
+            className='btn btn-success'
+            type="submit"
+            value="Add Room"
+          />
+        </form>
       </section>
     )
   }
