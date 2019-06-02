@@ -44,13 +44,13 @@ class App extends Component {
               <h1 className='chat-room-title'>
                 Bloc Chat
               </h1>
+              <div>
+                <User firebase={firebase} activeUser={this.setActiveUser} user={this.state.user} />
+              </div>
               <h2 className='rooms-title'>Rooms</h2>
               <RoomList firebase={firebase} activateRoom={this.setActiveRoom} />
             </div>
             <div className='col-9'>
-              <div>
-                <User firebase={firebase} activeUser={this.setActiveUser} user={this.state.user} />
-              </div>
               <div>
                 <h2 className='active-rooms'>{this.state.activeRoom.name}</h2>
               </div>

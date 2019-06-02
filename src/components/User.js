@@ -25,6 +25,7 @@ class User extends Component {
     this.props.firebase.auth().signOut().then(() => {
       console.log('success');
       this.props.activeUser(null);
+      //window.alert('You have successfully logged out.');
     }).catch(function(error) {
       console.log(error)
     });
@@ -35,8 +36,8 @@ class User extends Component {
       <section>
         <form className='user-access'>
         {this.props.user ?
-          (<p>Welcome {this.props.user.displayName}!</p>):
-          (<p>Welcome Guest!</p>)
+          (<p className='font-weight-bold'>Welcome {this.props.user.displayName}!</p>):
+          (<p className='font-weight-bold'>Welcome Guest!</p>)
         }
           <input
             className='btn btn-success'
