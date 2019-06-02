@@ -53,20 +53,22 @@ class MessageList extends Component {
     const listMess = (
       this.state.messages.map((message) => {
         if (message.roomId === this.props.activeRoom) {
-          return <ul
+          return <div
                   key={message.key}
-                  className='list-inline'
+                  className='card'
                 >
-                  <li>
-                    User: { message.username }
-                  </li>
-                  <li>
-                    Message: { message.content }
-                  </li>
-                  <li>
-                    Created: { message.sentAt }
-                  </li>
-                </ul>
+                  <div className='card-body'>
+                    <div className='card-text'>
+                      { message.username } says..
+                    </div>
+                    <div className='card-text text-left list-group-item'>
+                      { message.content }
+                    </div>
+                    <div className='card-text text-muted text-right'>
+                      Created: { message.sentAt }
+                    </div>
+                  </div>
+                </div>
         }
         return null;
       })

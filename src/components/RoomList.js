@@ -51,19 +51,19 @@ class RoomList extends Component {
       <section className='chat-room-list'>
         <div>
           {this.state.rooms.map( room =>
-            <ul key={ room.key } className='list-inline btn btn-success'>
-              <li
-                className="room-name"
+            <div key={ room.key } className='chat-rooms'>
+              <button
+                className="room-name btn btn-primary"
                 onClick={(e) => this.handleRoomClick(room, e)}
               >
                 { room.name }
-              </li>
-            </ul>
+              </button>
+            </div>
           )}
         </div>
         <form id='room-form' onSubmit={this.createRoom}>
           <input
-          className='form-control'
+            className='form-control'
             type='text'
             placeholder='Create a new room!'
             value={this.state.newRoomName}

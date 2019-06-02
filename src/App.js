@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 import './App.css';
 import * as firebase from 'firebase';
 
@@ -20,11 +21,18 @@ firebase.initializeApp(firebaseConfig);
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeRoom: '' }
+    this.state = {
+      activeRoom: '',
+      user: null
+    }
   }
 
   setActiveRoom = (room) => {
     this.setState({ activeRoom: room });
+  }
+
+  setActiveUser = (user) => {
+    this.setState({ user: user })
   }
 
   render() {
@@ -40,11 +48,15 @@ class App extends Component {
               <RoomList firebase={firebase} activateRoom={this.setActiveRoom} />
             </div>
             <div className='col-9'>
-              <section>
-                <h1>Click on a room to get started!</h1>
-                <h2>{this.state.activeRoom.name}</h2>
-              </section>
-              {this.state.activeRoom ? (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} />) : null}
+              <div>
+                <User firebase={firebase} activeUser={this.setActiveUser} user={this.state.user} />
+              </div>
+              <div>
+                <h2 className='active-rooms'>{this.state.activeRoom.name}</h2>
+              </div>
+              {this.state.activeRoom ?
+                (<MessageList firebase={firebase} activeRoom={this.state.activeRoom.key} />)
+                : (<h3>Click on a room to get started!</h3>)}
             </div>
           </div>
         </div>
