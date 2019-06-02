@@ -45,6 +45,7 @@ class MessageList extends Component {
       roomId: this.state.roomId,
       sentAt: this.state.sentAt
   });
+    this.setState({ content: '' })
   }
 
   render() {
@@ -88,6 +89,7 @@ class MessageList extends Component {
             className='form-control'
             type='text'
             placeholder='Post!'
+            value={this.state.content}
             onChange={this.handleMessageChange}
           />
           <input

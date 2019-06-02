@@ -30,6 +30,7 @@ class RoomList extends Component {
     this.setState({
       newRoomName: newRoom
     });
+    this.setState({ newRoomName: ''})
 
   }
 
@@ -65,7 +66,7 @@ class RoomList extends Component {
           className='form-control'
             type='text'
             placeholder='Create a new room!'
-            //value={this.state.newRoomName}
+            value={this.state.newRoomName}
             onChange={this.handleChange}
           />
           <input
