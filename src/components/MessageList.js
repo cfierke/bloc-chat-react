@@ -15,7 +15,7 @@ class MessageList extends Component {
       activeUserName: '',
     }
 
-    this.messageRef = this.props.firebase.database().ref( 'messages' );
+    this.messageRef = this.props.firebase.database().ref( 'messages1' );
   }
 
   componentDidMount() {
@@ -94,7 +94,7 @@ class MessageList extends Component {
             onChange={this.handleMessageChange}
           />
           <input
-            className='btn btn-success btn-block button-spacing'
+            className='btn btn-success btn-block'
             type='submit'
             value='Add Message'
           />
