@@ -7,13 +7,13 @@ import * as firebase from 'firebase';
 
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyDJBuehmxaXQCy1fn1i6k_0EvKaK_mUbV0",
-    authDomain: "bloc-chat-react-94c82.firebaseapp.com",
-    databaseURL: "https://bloc-chat-react-94c82.firebaseio.com",
-    projectId: "bloc-chat-react-94c82",
-    storageBucket: "bloc-chat-react-94c82.appspot.com",
-    messagingSenderId: "982424736019",
-    appId: "1:982424736019:web:8fac7257153a054a"
+    apiKey: "AIzaSyBx5IYGgulwB0UmHhR-u2IgMErlZQnWK6k",
+    authDomain: "bloc-chat-react-fbbf6.firebaseapp.com",
+    databaseURL: "https://bloc-chat-react-fbbf6.firebaseio.com",
+    projectId: "bloc-chat-react-fbbf6",
+    storageBucket: "bloc-chat-react-fbbf6.appspot.com",
+    messagingSenderId: "984833829249",
+    appId: "1:984833829249:web:c7a7aea4466d9954"
   };
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
